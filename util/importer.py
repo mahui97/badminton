@@ -1,6 +1,5 @@
 import sys
 
-
 def import_obj(type):
     if not isinstance(type, str):
         raise ImportError('Object type should be string.')
@@ -13,8 +12,8 @@ def import_obj(type):
         __import__(mod_str)
         return getattr(sys.modules[mod_str], class_str)
     except ModuleNotFoundError:
-        if type[0:10] != 'badminton.':
-            return import_obj('badminton.' + type)
+        if type[0:11] != 'mmskeleton.':
+            return import_obj('mmskeleton.' + type)
         raise ModuleNotFoundError('Object {} cannot be found in {}.'.format(
             class_str, mod_str))
 

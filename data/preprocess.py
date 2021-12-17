@@ -10,27 +10,27 @@ from mmskeleton.utils import cache_checkpoint, third_party
 from mmcv.utils import ProgressBar
 
 
-def get_all_files(path):
-    allfile = []
-    for dirpath, dirnames, filenames in os.walk(path):
-        for dir in dirnames:
-            allfile.append(os.path.join(dirpath, dir))
-        for name in filenames:
-            allfile.append(os.path.join(dirpath, name))
-    return allfile
+# def get_all_files(path):
+#     allfile = []
+#     for dirpath, dirnames, filenames in os.walk(path):
+#         for dir in dirnames:
+#             allfile.append(os.path.join(dirpath, dir))
+#         for name in filenames:
+#             allfile.append(os.path.join(dirpath, name))
+#     return allfile
 
-def remove_invalid_player(joint_preds, bboxes):
-    res = 0
-    resSpace = 1000000
-    for i, bbox in enumerate(bboxes):
-        # TODO: remove person who are not in the court
+# def remove_invalid_player(joint_preds, bboxes):
+#     res = 0
+#     resSpace = 1000000
+#     for i, bbox in enumerate(bboxes):
+#         # TODO: remove person who are not in the court
 
-        # we only need max person
-        bspace = (bbox[2] - bbox[0]) * (bbox[3] - bbox[1])
-        if i != res and bspace < resSpace:
-            res = i
-            resSpace = bspace
-    return joint_preds[res]
+#         # we only need max person
+#         bspace = (bbox[2] - bbox[0]) * (bbox[3] - bbox[1])
+#         if i != res and bspace < resSpace:
+#             res = i
+#             resSpace = bspace
+#     return joint_preds[res]
 
 def get_data(detection_cfg,
               estimation_cfg,
@@ -56,7 +56,8 @@ def get_data(detection_cfg,
     labels = []
     if not os.path.isdir(save_dir):
         os.makedirs(save_dir)
-    all_files = get_all_files(video_dir)
+    # all_files = get_all_files(video_dir)
+    all_files = ['ff1', 'ff2']
     for video_file in all_files:
         video_frames = mmcv.VideoReader(video_file)
         print(len(video_frames))
@@ -91,7 +92,7 @@ def get_data(detection_cfg,
             print(video_npy_path, " stored")
     
     # test we have the correct npy data
-    result_files = get_all_files(save_dir)
-    for i, file in enumerate(result_files):
-        data = np.load(file)
-        print(i, data.shape)
+    # result_files = get_all_files(save_dir)
+    # for i, file in enumerate(result_files):
+    #     data = np.load(file)
+    #     print(i, data.shape)
