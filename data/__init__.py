@@ -1,10 +1,5 @@
-# from .preprocess import get_all_files, remove_invalid_player, get_data
-# __all__ = [
-#     'get_all_files', 
-#     'remove_invalid_player',
-#     'get_data',
-# ]
-from .test import testFunc
+from .preprocess import get_all_files, remove_invalid_player
 __all__ = [
-    'testFunc'
+    'get_all_files', 
+    'remove_invalid_player'
 ]

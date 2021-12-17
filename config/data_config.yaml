@@ -1,5 +1,5 @@
 processor_cfg:
-  type: "data.test.testFunc"
+  type: "data.preprocess.get_data"
   gpus: 1
   worker_per_gpu: 1
   video_dir: "./resources/raw"
