@@ -1,6 +1,6 @@
-./myImages
 outfile.npz
 *.npy
 test.py
 *.png
-output/
+output
+__pycache__
